@@ -1,0 +1,7 @@
+services:
+  umg-app:
+    build: .
+    ports:
+      - "3000:3000"
+    container_name: umg-form-app
+    restart: unless-stopped
