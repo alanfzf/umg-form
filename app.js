@@ -5,13 +5,14 @@ const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-  // For demo purposes, just echo back
-  res.send(`Username: ${username} <br> Password: ${password}`);
+    const { username, password } = req.body;
+    // For demo purposes, just echo back
+    res.json({username, password})
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`Server running at http://localhost:${PORT}`);
 });
